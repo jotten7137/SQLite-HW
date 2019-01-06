@@ -94,8 +94,8 @@ return jsonify(indexed_station)
 #Return a JSON list of Temperature Observations (tobs) for the previous year.
 @app.route("/api/v1.0/tobs")
 def tobs(max_date):
-    max_date=str("2017-08-23")
-    min_date=str("2016-08-23")
+    max_date="2017-08-23"
+    min_date="2016-08-23"
     station_high = session.query(Measurement.date, Measurement.tobs).\
                 filter(Measurement.date<=max_date,Measurement.date>= min_date).\
                 filter(Measurement.station == max_station).all()
